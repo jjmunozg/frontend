@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>CILO 3 CABAÑAS</title>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+	<script type="text/javascript" src="../js/category.js"></script>
+	<script type="text/javascript" src="../js/cabin.js"></script>
+	<script type="text/javascript" src="../js/client.js"></script>
+	<script type="text/javascript" src="../js/message.js"></script>
+	<script type="text/javascript" src="../js/reservation.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="bg-dark  text-white text-center">RESERVACIONES</h1>
+        
+        <nav class="navbar  justify-content-center navbar-expand-xl bg-light">
+            <ul class="navbar-nav nav-pills">
+                <li class="nav-item"><a class="nav-link" href="cabin.html">Cabañas</a></li>
+                <li class="nav-item"><a class="nav-link" href="client.html">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.html">Categorias</a></li>
+                <li class="nav-item"><a class="nav-link" href="message.html">Mensajes</a></li>
+                <li class="nav-item"><a class="nav-link active" href="reservation.html">Reservaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="report.html">Reportes</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script type="text/javascript">
+        window.onload =  consultar_res();
+    </script>
+    <br> <br>	
+
+	<div class="container">
+        <br>
+        <form>
+            <input type="hidden" type="number" id="id_res" placeholder="ID"></label>
+            <label>Seleccione la Fecha Inicio de la Reservacion: </label>
+            <input type="date" id="startDate" placeholder="startDate"><br>
+            <label>Seleccione la Fecha Devolucion de la Reservacion: </label>
+            <input type="date" id="devolutionDate" placeholder="devolutionDate"><br>
+            <label>Estado de la Reservacion completed / cancelled: </label>
+            <input type="text" id="status" placeholder="completed / cancelled"><br>
+            <label>Selecciones Cliente: </label>
+            <select  class="select-outline" id="select-client"><option hidden  disabled selected>Client</option></select><br>
+            <label>Selecciones Cabaña: </label>
+            <select  class="select-outline" id="select-cabin"><option hidden  disabled selected>Cabin</option></select><br>
+            <script type="text/javascript">
+                window.onload = autoLoadCabin();
+                window.onload = autoLoadClient();
+            </script>
+            <br><br>
+        </form>
+        <button class="btn btn-info" onclick="insertar_res()">Crear Reserva</button>
+        <button class="btn btn-info" onclick="actualizar_res()">Actualizar Reserva</button>
+        <button class="btn btn-info" onclick="consultar_res()">Consultar Reservas</button>
+        <br><br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th>StartDate</th>
+                      <th>DevolutionDate</th>
+                      <th>Status</th>
+                      <th>Client</th>
+                      <th>Cabin</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                <tbody id="resultado_res">
+    
+                </tbody>
+            </table>
+        
+        </div>
+	<br>	
+</body>
+</html>
