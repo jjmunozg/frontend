@@ -9,12 +9,13 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 	<script type="text/javascript" src="../js/category.js"></script>
 	<script type="text/javascript" src="../js/cabin.js"></script>
 	<script type="text/javascript" src="../js/client.js"></script>
 	<script type="text/javascript" src="../js/message.js"></script>
 	<script type="text/javascript" src="../js/reservation.js"></script>
-
+    <script type="text/javascript" src="../js/report.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,68 @@
         </nav>
     </div>
 
-    
+    <div class="container">
+    <br> <br>	
+    <button class="btn  btn-primary" onclick="traerReporteStatus()"> Generar Reporte Status Reservas </button>
+    <br> <br>	
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th>Reservas Completadas</th>
+              <th>Reservas Canceladas</th>
+            </tr>
+          </thead>
+        <tbody id="resultadoStatus">
 
+        </tbody>
+    </table>
+
+      
+    <input type="date" id="RstarDate" placeholder="descripcion">
+    <input type="date" id="RdevolutionDate" placeholder="descripcion">
+    <br> <br>	
+    <button class="btn  btn-primary" onclick="traerReporteDate()"> Generar Reporte por fecha </button>
+    <br> <br>	
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>StartDate</th>
+                <th>DevolutionDate</th>
+                <th>Status</th>
+            </tr>
+          </thead>
+        <tbody id="resultadoDate">
+
+        </tbody>
+    </table>
+    <table class="table table-hover">
+        <thead>
+            <tr id="totalReservas">
+                <th>Total Reservas</th>
+            </tr>
+          </thead>
+        
+    </table>
+
+    
+    <button class="btn  btn-primary" onclick="traerReporteClientes()"> Generar Reporte Clientes y Cantidad de reservas por cliente </button>
+    <br> <br>	
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+        <tbody id="resultadoClientes">
+
+        </tbody>
+    </table>
+
+</div>
 </body>
 </html>
